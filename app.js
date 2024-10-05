@@ -13,7 +13,7 @@ class GameModel {
         this.gravity = 0.15; // 将重力降低到原来的一半
         this.jumpStrength = -3.5; // 减小跳跃强度
         this.pipeSpeed = 0.75; // 将管道移动速度降低到原来的一半
-        this.pipeInterval = 300; // 增加管道生成间隔
+        this.pipeInterval = 600; // 将管道生成间隔增加一倍
         this.gameOver = false;
     }
 
@@ -25,7 +25,7 @@ class GameModel {
         this.bird.y += this.bird.velocity;
 
         // 生成新的管道
-        if (this.pipes.length === 0 || this.pipes[this.pipes.length - 1].x < this.pipeInterval) {
+        if (this.pipes.length === 0 || this.pipes[this.pipes.length - 1].x < 400 - this.pipeInterval) {
             this.addPipe();
         }
 
@@ -252,8 +252,8 @@ view.showStartScreen();
 // 检测是否在移动设备上运行
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // 如果是移动设备，进一步降低难度
-    model.gravity = 0.02; // 将重力降低到原来的一半
+    model.gravity = 0.05; // 将重力降低到原来的一半
     model.jumpStrength = -1.5; // 减小跳跃强度
     model.pipeSpeed = 0.5; // 将管道移动速度降低到原来的一半
-    model.pipeInterval = 250; // 进一步增加管道生成间隔
+    model.pipeInterval = 700; // 进一步增加管道生成间隔
 }
