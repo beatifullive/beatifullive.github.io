@@ -254,6 +254,6 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     // 如果是移动设备，进一步降低难度
     model.gravity = 0.2;
     model.jumpStrength = -6;
-    model.pipeSpeed = 1;
+    model.pipeSpeed = 0.5;
     model.pipeInterval = 250;
 }
