@@ -253,7 +253,7 @@ view.showStartScreen();
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // 如果是移动设备，进一步降低难度
     model.gravity = 0.1;
-    model.jumpStrength = -3;
-    model.pipeSpeed = 2;
+    model.jumpStrength = -1;
+    model.pipeSpeed = 3;
     model.pipeInterval = 250;
 }
