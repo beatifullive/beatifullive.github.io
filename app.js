@@ -10,10 +10,10 @@ class GameModel {
             velocity: 0
         };
         this.pipes = [];
-        this.gravity = 0.3; // 降低重力
-        this.jumpStrength = -7; // 减小跳跃强度
-        this.pipeSpeed = 1.5; // 新增管道移动速度
-        this.pipeInterval = 200; // 新增管道生成间隔
+        this.gravity = 0.15; // 将重力降低到原来的一半
+        this.jumpStrength = -3.5; // 减小跳跃强度
+        this.pipeSpeed = 0.75; // 将管道移动速度降低到原来的一半
+        this.pipeInterval = 300; // 增加管道生成间隔
         this.gameOver = false;
     }
 
@@ -252,8 +252,8 @@ view.showStartScreen();
 // 检测是否在移动设备上运行
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // 如果是移动设备，进一步降低难度
-    model.gravity = 0.1;
-    model.jumpStrength = -1;
-    model.pipeSpeed = 3;
-    model.pipeInterval = 250;
+    model.gravity = 0.05; // 将重力降低到原来的一半
+    model.jumpStrength = -1.5; // 减小跳跃强度
+    model.pipeSpeed = 1; // 将管道移动速度降低到原来的一半
+    model.pipeInterval = 350; // 进一步增加管道生成间隔
 }
