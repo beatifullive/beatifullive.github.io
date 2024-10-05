@@ -255,5 +255,5 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     model.gravity = 0.02; // 将重力降低到原来的一半
     model.jumpStrength = -1.5; // 减小跳跃强度
     model.pipeSpeed = 0.5; // 将管道移动速度降低到原来的一半
-    model.pipeInterval = 350; // 进一步增加管道生成间隔
+    model.pipeInterval = 250; // 进一步增加管道生成间隔
 }
