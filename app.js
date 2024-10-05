@@ -252,8 +252,8 @@ view.showStartScreen();
 // 检测是否在移动设备上运行
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // 如果是移动设备，进一步降低难度
-    model.gravity = 0.05; // 将重力降低到原来的一半
+    model.gravity = 0.02; // 将重力降低到原来的一半
     model.jumpStrength = -1.5; // 减小跳跃强度
-    model.pipeSpeed = 1; // 将管道移动速度降低到原来的一半
+    model.pipeSpeed = 0.5; // 将管道移动速度降低到原来的一半
     model.pipeInterval = 350; // 进一步增加管道生成间隔
 }
