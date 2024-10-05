@@ -10,8 +10,10 @@ class GameModel {
             velocity: 0
         };
         this.pipes = [];
-        this.gravity = 0.5;
-        this.jumpStrength = -10;
+        this.gravity = 0.3; // 降低重力
+        this.jumpStrength = -7; // 减小跳跃强度
+        this.pipeSpeed = 1.5; // 新增管道移动速度
+        this.pipeInterval = 200; // 新增管道生成间隔
         this.gameOver = false;
     }
 
@@ -23,13 +25,13 @@ class GameModel {
         this.bird.y += this.bird.velocity;
 
         // 生成新的管道
-        if (this.pipes.length === 0 || this.pipes[this.pipes.length - 1].x < 250) {
+        if (this.pipes.length === 0 || this.pipes[this.pipes.length - 1].x < this.pipeInterval) {
             this.addPipe();
         }
 
         // 更新管道位置
         this.pipes.forEach(pipe => {
-            pipe.x -= 2;
+            pipe.x -= this.pipeSpeed;
         });
 
         // 移除屏幕外的管道
@@ -45,9 +47,9 @@ class GameModel {
     }
 
     addPipe() {
-        const gap = 150;
-        const minHeight = 50;
-        const maxHeight = 300;
+        const gap = 180; // 增加管道间隙
+        const minHeight = 80; // 增加最小高度
+        const maxHeight = 280; // 减小最大高度
         const height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
 
         this.pipes.push({
@@ -246,3 +248,12 @@ const controller = new GameController(model, view);
 
 // 显示开始屏幕
 view.showStartScreen();
+
+// 检测是否在移动设备上运行
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // 如果是移动设备，进一步降低难度
+    model.gravity = 0.2;
+    model.jumpStrength = -6;
+    model.pipeSpeed = 1;
+    model.pipeInterval = 250;
+}
